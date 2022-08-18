@@ -1,0 +1,37 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="211px" height="112px" viewBox="-0.5 -0.5 211 112" content="&lt;mxfile&gt;&lt;diagram id=&quot;WEXEDCLOLdu5960I7CAx&quot; name=&quot;Page-1&quot;&gt;5Zbfb5swEMf/GqStUid+hLSvDcm6h3aqmkl7voIDVo0PGadJ+rC/fWdsIISkzaZqL5OiBH99h333/RjiRUm5vVVQFfeYMeGFfrb1orkXhpPJFX0bYeeEaWyFXPHMSkEvLPkrc6Lv1DXPWD0I1IhC82oopiglS/VAA6VwMwxboRiuWkHORsIyBTFWf/JMF04NfL+f+MZ4Xrilr2M3UUIb7IS6gAw3e1K08KJEIWp7VW4TJkzv2r7YvK8nZruNKSb1WQmRzXgBsXbFLV5Mrt2d3rUl1xteCpA0mq1Q6qWbCWgMgueSrlPKY4qEF6Y0p27duAmNFalpwUV2Bztcm53VGtLndjQrUPFXui0Id0+aVtoZH04HEUuTSbJPqmI1xTy05QYH0j1sB4F3UGsnpCgEVDV/6sooQeVczlBrLF2Q6w2Vw7YnGxx0thHuDEum1Y5CXELntEM9nLjxpgen47rYYyZoRXCw5t29u+UeCW6QOZXwR+tdHVmOmjxYDQR5KUGzGa5lVu9DRBd7lfZSg9YJzCYjzC7t+SRD6LcART8XZcPedyjZiD9yQDdcKHxmCQok0OYSLZBciAOpZVKwlT5JZF1BymV+18TMJ73y6PpiJKTclWjOaMGzjElDE2rQYNExnFTIpW4aF8/oQ+1N/C+xF9PGExoH/Zg+JlzpxJSugDcUMeJywwybZyIXHWduN/TyPcQOPd8nbGD2W87GI2dH3gneeGK9ax+YwV8ZV5IFgvVO/TBGzi+DkZvR2M3oiHMCnph4wJprjub+ysYeOPovTIvD80y7/gDPpkc8oyL85vh92j+VF2ap7lR+9gwyUWCfjSbjl00ZT9yyJsPMkHhz5LD/t0fc7aB704QfRND0zDdL/MaL5QRCNOz/k9jnf//HLlr8Bg==&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs>
+        <clipPath id="mx-clip-4-31-202-26-0">
+            <rect x="4" y="31" width="202" height="26"/>
+        </clipPath>
+        <clipPath id="mx-clip-4-65-202-48-0">
+            <rect x="4" y="65" width="202" height="48"/>
+        </clipPath>
+    </defs>
+    <g>
+        <path d="M 0 26 L 0 0 L 210 0 L 210 26" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 0 26 L 0 110 L 210 110 L 210 26" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 26 L 210 26" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="104.5" y="17.5">
+                Event
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-31-202-26-0)" font-size="12px">
+            <text x="5.5" y="43.5">
+                - const char *mEventName
+            </text>
+        </g>
+        <path d="M 0 56 L 210 56" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-65-202-48-0)" font-size="12px">
+            <text x="5.5" y="77.5">
+                + Event(const char* aEventName)
+            </text>
+            <text x="5.5" y="91.5">
+                + ~Event()
+            </text>
+            <text x="5.5" y="105.5">
+                + GetName() : const char *
+            </text>
+        </g>
+    </g>
+</svg>
