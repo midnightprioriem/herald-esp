@@ -3,6 +3,6 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := cpp_pthread
+PROJECT_NAME := herald
 
 include $(IDF_PATH)/make/project.mk
