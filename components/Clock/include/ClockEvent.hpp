@@ -14,7 +14,6 @@ namespace Clocks {
 /**
  * @brief This Event is used to dispatch System Clock updates to other threads
  * in the system
- *
  */
 class ClockEvent : public Events::Event {
  public:

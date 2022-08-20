@@ -1,0 +1,4 @@
+set(SOURCES src/EspI2CBus.cpp )
+            
+idf_component_register(SRCS ${SOURCES}
+                    INCLUDE_DIRS include)
