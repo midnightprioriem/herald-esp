@@ -3,12 +3,10 @@
 cmake_minimum_required(VERSION 3.8)
 set(CMAKE_CXX_STANDARD 17)
 
-set(EXTRA_COMPONENT_DIRS components)
-
 # TODO: remove when setting up actual Wi-Fi Provisioning
 # (Not part of the boilerplate)
 # This example uses an extra component for common functions such as Wi-Fi and Ethernet connection.
-set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_examples_common)
+set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_examples_common external)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(herald)

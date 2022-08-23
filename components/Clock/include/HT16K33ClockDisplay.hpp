@@ -81,11 +81,19 @@ class HT16K33ClockDisplay : public ClockDisplay {
    */
   void ClearDisplay() final;
 
+/**
+ * @brief Set the Brightness of the Clock display
+ * 
+ * @param aBrightness target brightness between 0x0 and 0xF
+ */
+  void SetBrightness(uint8_t aBrightness);
+
  private:
   void SetCharacter(DispPos aPos, uint8_t aCharacter);
   void SetDigit(DispPos aPos, uint8_t aNum);
   I2C::I2CBus& mDisplayBus;
   uint8_t mCache[DispPos::Num]{0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+  uint8_t mBrightness;
 };
 }  // namespace Clocks
 

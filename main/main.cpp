@@ -23,6 +23,7 @@
 #include "EventQueue.hpp"
 #include "HT16K33ClockDisplay.hpp"
 #include "SystemClock.hpp"
+#include "app_server.hpp"
 #include "driver/i2c.h"
 #include "esp_event.h"
 #include "esp_log.h"
@@ -82,6 +83,13 @@ void app_clock_display(Events::EventDispatcher &aEventDispatcher) {
         try {
           auto event = dynamic_cast<Clocks::ClockEvent &>(aEvent);
           auto now = event.GetTime();
+          const auto local = localtime(&now);
+          if(local->tm_hour < 7 || local->tm_hour > 21) {
+            clockDisplay.SetBrightness(0x0);
+          }
+          else {
+            clockDisplay.SetBrightness(0xF);
+          }
           clockDisplay.SetTime(now);
         } catch (const std::bad_cast &e) {
           ESP_LOGI(TAG, "Unexpected event type %s", e.what());
@@ -111,6 +119,7 @@ extern "C" void app_main(void) {
   ESP_ERROR_CHECK(example_connect());
 
   auto clock_thread = std::thread(app_clock, std::ref(eventDispatcher));
+  auto server_thread = std::thread(app_server, std::ref(eventDispatcher));
 
   // Process event queue
   while (true) {

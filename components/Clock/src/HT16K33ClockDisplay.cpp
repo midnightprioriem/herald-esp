@@ -15,14 +15,14 @@ static auto constexpr TAG = "HT16K33";
 
 namespace Clocks {
 HT16K33ClockDisplay::HT16K33ClockDisplay(I2C::I2CBus& aDisplayBus)
-    : mDisplayBus(aDisplayBus) {
+    : mDisplayBus(aDisplayBus), mBrightness(0xF) {
   /* TODO add error handling here, throw exception if communication with HT16K33
    * fails */
 
   mDisplayBus.Write({Command::OscillatorOn});  // Clock oscillator on
   mDisplayBus.Write({Command::DisplayOn});     // Clock display on
-  mDisplayBus.Write(
-      {Command::DisplayBrightness & 0xF});  // Clock brightness full
+  mDisplayBus.Write({static_cast<uint8_t>(
+      Command::DisplayBrightness & mBrightness)});  // Clock brightness full
   ClearDisplay();
 }
 
@@ -50,6 +50,17 @@ void HT16K33ClockDisplay::ClearDisplay() {
   SetCharacter(DispPos::Colon, SpecialChar::ClearChar);
   SetCharacter(DispPos::Three, SpecialChar::ClearChar);
   SetCharacter(DispPos::Four, SpecialChar::ClearChar);
+}
+
+void HT16K33ClockDisplay::SetBrightness(uint8_t aBrightness) {
+  // Truncate to lower 4 bits
+  aBrightness = aBrightness & 0xF;
+  if (aBrightness != mBrightness) {
+    mBrightness = aBrightness;
+      ESP_LOGI(TAG, "Setting display brightness to %d", mBrightness);
+    mDisplayBus.Write(
+        {static_cast<uint8_t>(Command::DisplayBrightness & mBrightness)});
+  }
 }
 
 void HT16K33ClockDisplay::SetCharacter(DispPos aPos, uint8_t aCharacter) {
