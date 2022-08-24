@@ -22,7 +22,7 @@ HT16K33ClockDisplay::HT16K33ClockDisplay(I2C::I2CBus& aDisplayBus)
   mDisplayBus.Write({Command::OscillatorOn});  // Clock oscillator on
   mDisplayBus.Write({Command::DisplayOn});     // Clock display on
   mDisplayBus.Write({static_cast<uint8_t>(
-      Command::DisplayBrightness & mBrightness)});  // Clock brightness full
+      Command::DisplayBrightness | mBrightness)});  // Clock brightness full
   ClearDisplay();
 }
 
@@ -57,11 +57,13 @@ void HT16K33ClockDisplay::SetBrightness(uint8_t aBrightness) {
   aBrightness = aBrightness & 0xF;
   if (aBrightness != mBrightness) {
     mBrightness = aBrightness;
-      ESP_LOGI(TAG, "Setting display brightness to %d", mBrightness);
+    ESP_LOGI(TAG, "Setting display brightness to %d", mBrightness);
     mDisplayBus.Write(
-        {static_cast<uint8_t>(Command::DisplayBrightness & mBrightness)});
+        {static_cast<uint8_t>(Command::DisplayBrightness | mBrightness)});
   }
 }
+
+uint8_t HT16K33ClockDisplay::GetBrightness() { return mBrightness; }
 
 void HT16K33ClockDisplay::SetCharacter(DispPos aPos, uint8_t aCharacter) {
   if (mCache[aPos / 2] == aCharacter) {

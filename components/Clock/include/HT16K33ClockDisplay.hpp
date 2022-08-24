@@ -88,6 +88,13 @@ class HT16K33ClockDisplay : public ClockDisplay {
  */
   void SetBrightness(uint8_t aBrightness);
 
+  /**
+   * @brief Get the Brightness of the Clock Display
+   * 
+   * @return uint8_t current brightness between 0x0 and 0xF
+   */
+  uint8_t GetBrightness();
+
  private:
   void SetCharacter(DispPos aPos, uint8_t aCharacter);
   void SetDigit(DispPos aPos, uint8_t aNum);
